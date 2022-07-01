@@ -1,0 +1,24 @@
+{
+    "manufacturer":"Cambridge Audio",
+    "supportedModels":[
+        "551R"
+    ],
+    "warmUpDelay": 7,
+    "supportedController":"ESPHome",
+    "commandsEncoding":"AddressCommand",
+    "commands":{
+        "off": { "address": "16", "command": 101 },
+        "on": { "address": "16", "command": 100 },
+        "volumeDown": { "address": "16", "command": 77 },
+        "volumeUp": { "address": "16", "command": 76 },
+        "mute": { "address": "16", "command": 75 },
+        "sources":{
+            "BD DVD": { "address": "16", "command": 65 },
+            "Video 1": { "address": "16", "command": 66 },
+            "Video 2": { "address": "16", "command": 67 },
+            "Video 3": { "address": "16", "command": 73 },
+            "Tape": { "address": "16", "command": 68 },
+            "CD": { "address": "16", "command": 70 }
+         }
+    }
+}
