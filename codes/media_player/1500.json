@@ -1,0 +1,24 @@
+{
+    "manufacturer":"Cambridge Audio",
+    "supportedModels":[
+        "551R"
+    ],
+    "warmUpDelay": 7,
+    "supportedController":"Broadlink",
+    "commandsEncoding":"Base64",
+    "commands":{
+        "off":"JgAWADodHTo6HR0dHR0dOjodHTo6Oh0AC2cNBQAAAAAAAAAAAAAAAAAAAAA=",
+        "on":"JgAWADodHTo6HR0dHR0dOjodHTo6HR0AC4QNBQAAAAAAAAAAAAAAAAAAAAA=",
+        "volumeDown":"JgAYADodHTo6HR0dHR0dHR0dHTodHTo6HQALZw0FAAAAAAAAAAAAAAAAAAA=",
+        "volumeUp":"JgAYADodHTo6HR0dHR0dHR0dHTodHTodHQALhA0FAAAAAAAAAAAAAAAAAAA=",
+        "mute":"JgAWADodHTo6HR0dHR0dOjodHTodHToAC4QNBQAAAAAAAAAAAAAAAAAAAAA=",
+        "sources":{
+            "BD DVD": "JgAaADodHTo6HR0dHR0dHR0dHR0dHR0dHTodAAtnDQUAAAAAAAAAAAAAAAA=",
+            "Video 1": "JgAYADodHTo6HR0dHR0dHR0dHR0dHR06OgALhA0FAAAAAAAAAAAAAAAAAAA=",
+            "Video 2": "JgAaADodHTo6HR0dHR0dHR0dHR0dHR06HR0dAAtnDQUAAAAAAAAAAAAAAAA=",
+            "Video 3": "JgAYADodHTo6HR0dHR0dHR0dHTo6HR06HQALZw0FAAAAAAAAAAAAAAAAAAA=",
+            "Tape": "JgAYADodHTo6HR0dHR0dHR0dHR0dOjodHQALhA0FAAAAAAAAAAAAAAAAAAA=",
+            "CD": "JgAYADodHTo6HR0dHR0dHR0dHR0dOh0dOgALhA0FAAAAAAAAAAAAAAAAAAA="
+         }
+    }
+}
