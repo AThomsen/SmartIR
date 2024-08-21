@@ -121,6 +121,55 @@ remote_transmitter:
   carrier_duty_percent: 50%
 ```
 
+Additionally to `raw` codes, brand specific encoders can also be used with the corresponding encodings in the json file.
+
+The ESPHome service should be changed to the matching `remote_transmitter.transmit_<brand>`
+with the appropriate parameters.
+
+Encoding: `Data` (for JVC, Samsung)
+```yaml
+api:
+  services:
+    - service: send_jvc_command
+      variables:
+        data: int
+      then:
+        - remote_transmitter.transmit_jvc:
+            data: !lambda 'return data;'
+```
+In the `json` codes' file, commands must be a plain integer or a string in hex.
+
+
+Encoding: `DataNbits` (for LG, Sony)
+```yaml
+api:
+  services:
+    - service: send_lg_command
+      variables:
+        data: int
+        nbits: int
+      then:
+        - remote_transmitter.transmit_lg:
+            data: !lambda 'return data;'
+            nbits: !lambda 'return nbits;'
+```
+In the `json` codes' file, commands must be an object with `data` and optionally `nbits` properties. `data` must be a plain integer or a string in hex.
+
+Encoding: `AddressCommand` (for NEC, RC5, Samsung36, Panasonic, Cambridge Audio).
+```yaml
+api:
+  services:
+    - service: send_nec_command
+      variables:
+        address: int
+        command: int
+      then:
+        - remote_transmitter.transmit_nec:
+            address: !lambda 'return data;'
+            command: !lambda 'return nbits;'
+```
+In the `json` codes' file, commands must be an object with `address` and  `command` properties. Both must be plain integers or strings in hex.
+
 HA configuration.yaml:
 
 ```yaml

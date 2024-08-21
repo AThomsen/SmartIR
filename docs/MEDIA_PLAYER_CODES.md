@@ -10,6 +10,7 @@ The following are the code files created by the amazing people in the community.
 <tr ><td class="file-td td_text">1041.json</td><td class="manufacturer-td td_text">LG</td><td class="models-td td_text">LH6235D</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1042.json</td><td class="manufacturer-td td_text">LG</td><td class="models-td td_text">43UM7510PSB, OLED55B8SSC</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1043.json</td><td class="manufacturer-td td_text">LG</td><td class="models-td td_text">32LC2R</td><td class="controller-td td_text">Broadlink</td></tr>
+<tr ><td class="file-td td_text">1044.json</td><td class="manufacturer-td td_text">LG</td><td class="models-td td_text">55UH8509</td><td class="controller-td td_text">ESPHome</td></tr>
 <tr ><td class="file-td td_text">1060.json</td><td class="manufacturer-td td_text">Samsung</td><td class="models-td td_text">UE40F6500, UE40H7000SL</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1061.json</td><td class="manufacturer-td td_text">Samsung</td><td class="models-td td_text">UE40C6000, UE40D6500, UE32H5500, UE22D5000</td><td class="controller-td td_text">Broadlink</td></tr>
 <tr ><td class="file-td td_text">1062.json</td><td class="manufacturer-td td_text">Samsung</td><td class="models-td td_text">UE40C6000, UE40D6500, UE32H5500, UE22D5000</td><td class="controller-td td_text">Broadlink</td></tr>

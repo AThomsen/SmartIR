@@ -16,6 +16,10 @@ from .controller_const import (
     UFOR11_CONTROLLER,
     ENC_HEX,
     ENC_PRONTO,
+    ENC_RAW,
+    ENC_DATA,
+    ENC_DATA_NBITS,
+    ENC_ADDRESS_COMMAND,
     BROADLINK_COMMANDS_ENCODING,
     XIAOMI_COMMANDS_ENCODING,
     MQTT_COMMANDS_ENCODING,
@@ -275,7 +279,32 @@ class ESPHomeController(AbstractController):
 
     async def send(self, command):
         """Send a command."""
-        service_data = {"command": json.loads(command)}
+
+        if self._encoding == ENC_RAW:
+            service_data = {
+                'command':  command if type(command) != str else json.loads(command)
+            }
+
+        elif self._encoding == ENC_ADDRESS_COMMAND:
+
+            service_data = {
+                'address': int(command['address'], 16) if type(command.get('address')) == str else command['address'],
+                'command': int(command['command'], 16) if type(command.get('command')) == str else command['command']
+            }
+
+        elif self._encoding == ENC_DATA:
+            service_data = {
+                'data': int(command, 16) if type(command) == str else command
+            }
+
+        elif self._encoding == ENC_DATA_NBITS:
+
+            service_data = {
+                'data': int(command['data'], 16) if type(command.get('data')) == str else command['data']
+            }
+
+            if 'nbits' in command:
+                service_data['nbits'] = command['nbits']
 
         await self.hass.services.async_call(
             "esphome",
@@ -291,7 +320,7 @@ class ZHAController(AbstractController):
         """Check if the encoding is supported by the controller."""
         if encoding not in ZHA_COMMANDS_ENCODING:
             raise Exception(
-                "The encoding is not supported " "by the ESPHome controller."
+                "The encoding is not supported " "by the ZHA controller."
             )
 
     async def send(self, command):
