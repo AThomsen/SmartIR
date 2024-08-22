@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from base64 import b64encode
 import ipaddress
 import binascii
+import re
 import requests
 import struct
 import json
@@ -287,10 +288,17 @@ class ESPHomeController(AbstractController):
 
         elif self._encoding == ENC_ADDRESS_COMMAND:
 
+            # command is a string with the format "address:command"
+            addr, cmd = re.findall(r'\d+', command)
             service_data = {
-                'address': int(command['address'], 16) if type(command.get('address')) == str else command['address'],
-                'command': int(command['command'], 16) if type(command.get('command')) == str else command['command']
+                'address': int(addr),
+                'command': int(cmd)
             }
+            
+            # service_data = {
+            #     'address': int(command['address'], 16) if type(command.get('address')) == str else command['address'],
+            #     'command': int(command['command'], 16) if type(command.get('command')) == str else command['command']
+            # }
 
         elif self._encoding == ENC_DATA:
             service_data = {
@@ -359,6 +367,12 @@ class UFOR11Controller(MQTTController):
 
 class Helper:
     """Static shared functions."""
+
+    @staticmethod
+    def rc5_to_raw(address, cmmand):
+        """Convert RC5 ir code to raw code."""
+        
+
 
     @staticmethod
     def pronto2lirc(pronto):
